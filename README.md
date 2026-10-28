@@ -38,7 +38,7 @@ A full-featured, role-based **Library Management System** built with **ASP.NET C
 
 1. **Clone the repository**
    ```bash
-   git clone https://github.com/<your-username>/LibraryManagementSystem.git
+   git clone https://github.com/MashrubaTasnim/LibraryManagementSystem.git
    cd LibraryManagementSystem
    ```
 
@@ -96,9 +96,15 @@ wwwroot/       Static files (CSS, JS, images)
 
 ## Screenshots
 
-_Add screenshots of the home page, dashboard, and borrowing flow here._
+<!-- Add screenshots to a `screenshots/` folder, then uncomment and edit:
+![Home](screenshots/home.png)
+![Borrowing](screenshots/borrowing.png)
+-->
+
+_Screenshots coming soon._
 
 ## Author
 
 **Mashruba Tasnem**
+GitHub: [@MashrubaTasnim](https://github.com/MashrubaTasnim)  
 Email: mashruba.cse@gmail.com
