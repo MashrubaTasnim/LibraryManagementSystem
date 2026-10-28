@@ -1,0 +1,51 @@
+﻿@model List<LibraryManagementSystem.Models.Borrowing>
+
+@{
+    ViewData["Title"] = "Pending Requests";
+}
+
+<h1>Pending Borrow Requests</h1>
+
+@if (TempData["Error"] != null)
+{
+    <div class="alert alert-danger">@TempData["Error"]</div>
+}
+@if (TempData["Success"] != null)
+{
+    <div class="alert alert-success">@TempData["Success"]</div>
+}
+
+@if (!Model.Any())
+{
+    <p>No pending requests.</p>
+}
+else
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Book</th>
+                <th>Member</th>
+                <th>Requested On</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.Book?.Title</td>
+                    <td>@item.Member?.FullName</td>
+                    <td>@item.IssueDate.ToShortDateString()</td>
+                    <td>
+                        <a asp-action="Approve" asp-route-id="@item.BorrowingId" class="btn btn-success btn-sm">Approve</a>
+                        <form asp-action="Reject" asp-route-id="@item.BorrowingId" method="post" style="display:inline">
+                            @Html.AntiForgeryToken()
+                            <button type="submit" class="btn btn-danger btn-sm">Reject</button>
+                        </form>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}

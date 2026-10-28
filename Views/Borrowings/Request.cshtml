@@ -1,0 +1,27 @@
+﻿@model LibraryManagementSystem.Models.Book
+
+@{
+    ViewData["Title"] = "Request to Borrow";
+}
+
+<h1>Request to Borrow</h1>
+
+@if (TempData["Error"] != null)
+{
+    <div class="alert alert-danger">@TempData["Error"]</div>
+}
+
+<dl class="row">
+    <dt class="col-sm-3">Title</dt>
+    <dd class="col-sm-9">@Model.Title</dd>
+    <dt class="col-sm-3">Author</dt>
+    <dd class="col-sm-9">@Model.Author?.Name</dd>
+</dl>
+
+<div class="alert alert-info">Your request will be reviewed by library staff before the book is issued to you.</div>
+
+<form asp-action="Request" method="post">
+    <input type="hidden" name="id" value="@Model.BookId" />
+    <button type="submit" class="btn btn-primary">Submit Request</button>
+    <a asp-controller="Books" asp-action="Details" asp-route-id="@Model.BookId" class="btn btn-secondary">Cancel</a>
+</form>
